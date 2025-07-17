@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrannBluee Discord Shop</title>
+    <style>
+        :root {
+            --primary-blue: #1e88e5;
+            --dark-blue: #0d47a1;
+            --light-blue: #bbdefb;
+            --accent-teal: #26a69a;
+            --dark-bg: #121a24;
+            --light-bg: #f5f7fa;
+            --text-dark: #263238;
+            --text-light: #eceff1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Whitney', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .frannbluee-header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frannbluee-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03f2c17b-e44f-473f-b8ca-ee22124ebe80.png') center/cover no-repeat;
+            opacity: 0.2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background: var(--accent-teal);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .support-btn:hover {
+            background: #1abba7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .server-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .server-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        .server-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-teal);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .server-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        .server-details {
+            padding: 1.5rem;
+        }
+
+        .server-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-blue);
+        }
+
+        .server-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .price-details {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .features-list {
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "•";
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-right: 0.7rem;
+            font-size: 1.2rem;
+        }
+
+        .buy-btn {
+            display: block;
+            background: linear-gradient(to right, var(--primary-blue), var(--dark-blue));
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+        }
+
+        .coming-soon {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .coming-soon span {
+            background: var(--accent-teal);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .server-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="frannbluee-header">
+        <div class="header-content">
+            <div class="logo">FRANNBLUEE</div>
+            <div class="tagline">Server Discord premium con il miglior rapporto qualità/prezzo</div>
+            <a href="https://discord.gg/jyqBkcxXGT" class="support-btn" target="_blank">Entra nel Server Supporto</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 1rem; color: var(--dark-blue);">I NOSTRI SERVER DISCORD</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+            Ecco il server perfetto per te. Configurazioni su misura per ogni esigenza, con la qualità FrannBluee.
+        </p>
+
+        <div class="server-showcase">
+            <!-- Server Base -->
+            <div class="server-card highlighted">
+                <div class="popular-tag">PIÙ RICHIESTO</div>
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dbf16328-9877-4eb5-a52b-9b27c4168bc8.png" alt="Interfaccia pulita di un server Discord con tema blu e icone moderne" class="server-image">
+                <div class="server-details">
+                    <h3 class="server-name">Server Base</h3>
+                    <div class="server-price">€2.99</div>
+                    <div class="price-details">al mese - perfetto per iniziare</div>
+                    <ul class="features-list">
+                        <li>10 canali pre-configurati</li>
+                        <li>5 ruoli personalizzati</li>
+                        <li>Supporto base</li>
+                    </ul>
+                    <button class="buy-btn">ACQUISTA ORA</button>
+                </div>
+            </div>
+
+            <!-- Server Standard -->
+            <div class="server-card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8c5b1035-e7ea-42f3-abb0-81b1b1b89b1d.png" alt="Interfaccia avanzata di server Discord con più sezioni e funzionalità" class="server-image">
+                <div class="server-details">
+                    <h3 class="server-name">Server Standard</h3>
+                    <div class="server-price">€5.99</div>
+                    <div class="price-details">al mese - la scelta ideale</div>
+                    <ul class="features-list">
+                        <li>25 canali organizzati</li>
+                        <li>15 ruoli avanzati</li>
+                        <li>Supporto prioritario</li>
+                        <li>Template personalizzato</li>
+                    </ul>
+                    <button class="buy-btn">ACQUISTA ORA</button>
+                </div>
+            </div>
+
+            <!-- Server Pro -->
+            <div class="server-card">
+                <div class="coming-soon">
+                    <span>IN ARRIVO</span>
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">FrannBluee Special</div>
+                    <div style="opacity: 0.9; max-width: 250px;">Stiamo preparando una configurazione esclusiva!</div>
+                </div>
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20415dfe-b71e-4ca5-8014-ea60fc02db7a.png" alt="Visualizzazione premium di un server Discord con tema FrannBluee esclusivo" class="server-image">
+                <div class="server-details">
+                    <h3 class="server-name">FrannBluee Pro</h3>
+                    <div class="server-price">€9.99</div>
+                    <div class="price-details">al mese - l'esperienza premium</div>
+                    <ul class="features-list">
+                        <li>50+ canali organizzati</li>
+                        <li>30+ ruoli personalizzati</li>
+                        <li>Supporto 24/7</li>
+                        <li>Design esclusivo FrannBluee</li>
+                        <li>Canali vocali ottimizzati</li>
+                    </ul>
+                    <button class="buy-btn" disabled>DISPONIBILE PRESTO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">FRANNBLUEE</div>
+                <div style="opacity: 0.8;">Ecco quello che fa per te</div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="#" style="color: var(--text-light); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Chi sono</a>
+                <a href="https://discord.gg/jyqBkcxXGT" style="color: var(--text-light); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" target="_blank">Server Supporto</a>
+                <a href="#" style="color: var(--text-light); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">FAQ</a>
+                <a href="#" style="color: var(--text-light); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Termini</a>
+            </div>
+            <div style="opacity: 0.6; font-size: 0.9rem;">
+                &copy; 2023 FrannBluee. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
